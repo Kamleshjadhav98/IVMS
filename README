@@ -1,0 +1,104 @@
+# IVMS — Industrial Visit Management System
+
+## Project summary
+A full-stack Industrial Visit Management System (IVMS) with separate `backend` (Node/Express API) and `frontend` (React) folders. This repository contains the source code for managing visits, registrations, galleries, feedback, and admin functionality.
+
+## Repository layout
+- `backend/` — Express server, API routes, models, file upload utilities.
+- `frontend/` — React frontend app (create-react-app or similar).
+- `README` — this document.
+
+## Key features
+- Visit and registration management
+- Admin panel routes and models
+- File upload and document storage
+- City/state/district data and search
+- Feedback, fees, gallery management
+
+## Prerequisites
+- Node.js 14+ and npm (or yarn)
+- MongoDB (local or hosted Atlas)
+- Git
+
+Assumptions: the `backend` uses Node/Express and a MongoDB database. If you use different services (SQL, other hosts), adjust environment variables and instructions accordingly.
+
+## Environment variables
+Create a `.env` file in `backend/` with at least the following values (names are conventional; check `backend/package.json` or code for exact names):
+
+- MONGO_URI — MongoDB connection string
+- PORT — backend server port (e.g. 5000)
+- JWT_SECRET — secret for authentication tokens
+- (Optional) CLOUDINARY_URL or other storage keys if file uploads use a cloud provider
+
+## Setup and run (PowerShell)
+1) Backend
+
+```powershell
+cd C:\IVMSS\ivms-main\backend
+npm install
+# start in development (if project provides a dev script like `dev` or uses nodemon)
+npm run dev # or `npm start` depending on package.json
+```
+
+2) Frontend
+
+```powershell
+cd C:\IVMSS\ivms-main\frontend
+npm install
+npm start
+```
+
+Now open the frontend (usually http://localhost:3000) and ensure the backend API port matches the frontend configuration.
+
+## Quick git: push and branch notes (PowerShell)
+Your local branch is currently `master`. Many remotes use `main` as the default branch. Pick one of the following options depending on your preference:
+
+- Push local `master` to remote `main` (create remote main):
+```powershell
+cd C:\IVMSS\ivms-main
+git push origin master:main
+```
+
+- Rename local `master` to `main` and push with upstream (recommended if you want local branch named `main`):
+```powershell
+cd C:\IVMSS\ivms-main
+git branch -m master main
+git push -u origin main
+```
+
+- Or push to remote `master` and set upstream (if repo uses `master`):
+```powershell
+cd C:\IVMSS\ivms-main
+git push -u origin master
+```
+
+Caveat: if the remote already contains a `main` branch with different commits, pushing may be rejected. Don't force-push unless you're certain.
+
+## Tests & linting
+Check for any tests or lint scripts in `package.json` inside `backend` and `frontend`. Run them with:
+
+```powershell
+cd C:\IVMSS\ivms-main\backend
+npm test
+# or
+npm run lint
+```
+
+## Deployment
+- Backend: deploy to Heroku/Render/Vercel (Server) or a VPS. Ensure env vars are set on the host.
+- Frontend: build and deploy to Vercel/Netlify or serve statically from a CDN.
+
+## Contributing
+- Open an issue for bugs or feature requests.
+- Create feature branches, commit logically, and open a PR to `main` (or `master` depending on your chosen flow).
+
+## Contact
+For questions or help, open an issue in this repo.
+
+## License
+Specify a license (MIT recommended) or add a `LICENSE` file if you want to make this project public under a specific license.
+
+### Requirements coverage
+- Provide a proper README for the repo — Done.
+- Include commands to push/rename branches as needed — Done.
+- Include setup/run instructions for backend and frontend — Done (assumed Node/Mongo setup; adjust if different).
